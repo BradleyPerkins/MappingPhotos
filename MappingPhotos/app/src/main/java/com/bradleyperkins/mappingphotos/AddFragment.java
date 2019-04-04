@@ -20,13 +20,16 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
@@ -95,6 +98,21 @@ public class AddFragment extends Fragment implements View.OnClickListener {
         addBtn = getActivity().findViewById(R.id.add_btn);
         addBtn.setOnClickListener(this);
 
+        noteET.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                boolean handled = false;
+                if (i == EditorInfo.IME_ACTION_DONE) {
+                    if (!noteET.getText().toString().isEmpty() && mCurrentPhotoPath != null && !titleET.getText().toString().isEmpty()){
+                        note = noteET.getText().toString().trim();
+                        title = titleET.getText().toString().trim();
+                        mListener.addItem(note, mCurrentPhotoPath, title);
+                        handled = true;
+                    }
+                }
+                return handled;
+            }
+        });
     }
 
     @Override
@@ -131,11 +149,11 @@ public class AddFragment extends Fragment implements View.OnClickListener {
             case REQUEST_GALLERY_PICK:
                 if(resultCode == RESULT_OK){
                     selectedImage = data.getData();
+                    mCurrentPhotoPath = String.valueOf(selectedImage);
                     Glide.with(this).load(selectedImage).into(cameraImageView);
                 }
                 break;
         }
-
     }
 
     @Override

@@ -23,14 +23,11 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.io.File;
 import java.util.ArrayList;
 
 
@@ -129,9 +126,9 @@ public class ItemsMapFragment extends MapFragment implements OnMapReadyCallback,
 
         for (int i=0; i<itemsList.size(); i++){
             LatLng markerLatLng = new LatLng(itemsList.get(i).getCurrLatitude(), itemsList.get(i).getCurrLongitude());
-            String image = itemsList.get(i).getPhotoTaken();
-            File imgFile = new  File(image);
-            BitmapDescriptor photo = BitmapDescriptorFactory.fromFile(image);
+//            String image = itemsList.get(i).getPhotoTaken();
+//            File imgFile = new  File(image);
+//            BitmapDescriptor photo = BitmapDescriptorFactory.fromFile(image);
 
             mMap.addMarker(new MarkerOptions()
                     .position(markerLatLng)

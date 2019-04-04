@@ -30,6 +30,11 @@ public class AddActivity extends AppCompatActivity implements AddFragment.MapIte
 
         int result = RESULT_OK;
 
+//        //Ask permissions for camera and gallery on initial launch of activity
+//        int ALL_PERMISSIONS = 101;
+//        final String[] permissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
+//        ActivityCompat.requestPermissions(this, permissions, ALL_PERMISSIONS);
+
         Bundle extras = getIntent().getExtras();
         if (extras != null){
             currLatitude = getIntent().getDoubleExtra(ItemsMapFragment.LAT_EXTRA, 0);

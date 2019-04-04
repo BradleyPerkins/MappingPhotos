@@ -8,26 +8,55 @@
     tools:context=".AddFragment">
 
     <ImageView
+        android:layout_margin="12dp"
         android:id="@+id/image_iv"
+        android:background="@drawable/round_boarder"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10.0"
         android:scaleType="centerInside"/>
 
     <EditText
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="12dp"
+        android:padding="8dp"
         android:hint="Enter Title"
+        android:imeOptions="actionNext"
+        android:inputType="textPersonName"
+        android:textColorHint="#fff"
+        android:textColor="#fff"
         android:id="@+id/title_et"
+        android:background="@drawable/round_boarder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="4dp"
+        android:inputType="textPersonName"
+        android:imeOptions="actionDone"
+        android:padding="8dp"
+        android:textColor="#fff"
+        android:background="@drawable/round_boarder"
         android:hint="Enter Note"
+        android:textColorHint="#fff"
         android:id="@+id/note_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/add_btn"
+        android:background="@drawable/btn_round_boarder"
+        android:layout_marginLeft="12dp"
+        android:layout_marginBottom="12dp"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginRight="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Item" />
